@@ -7,14 +7,15 @@ speed = vector(0, 0)
 targets = []
 score=0
 writer = Turtle(visible=False)
+sp=10
 
 def tap(x, y):
     "Respond to screen tap."
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        speed.x = (x*sp+ 200) / 25
+        speed.y = (y*sp + 200) / 25
 
 def inside(xy):
     "Return True if xy within screen."
@@ -50,10 +51,10 @@ def move():
         
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 0.5*sp
         
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 0.35*sp
         ball.move(speed)
        
     dupe =targets.copy()
