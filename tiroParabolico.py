@@ -33,8 +33,8 @@ def draw():
     if inside(ball):
         goto(ball.x, ball.y)
         dot(10, 'red')
-    goto(0,0)
-    write(score)
+    goto(0,190)
+    write(score,font=("Arial",20))
         
     update()
 
