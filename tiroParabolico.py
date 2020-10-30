@@ -7,7 +7,7 @@ speed = vector(0, 0)
 targets = []
 score=0
 writer = Turtle(visible=False)
-sp=10
+sp=7
 
 def tap(x, y):
     "Respond to screen tap."
@@ -73,7 +73,7 @@ def move():
         if not inside(target):
             targets[targets.index(target)].x = 200       
 
-    ontimer(move, 10)
+    ontimer(move, 50)
 
 
 
