@@ -1,3 +1,7 @@
+#tiroParabolico.py
+#Carla Perez, Aranza Garcia 
+#juego de lanzamiento de proyectiles
+
 from random import randrange
 from turtle import *
 from freegames import vector
@@ -5,12 +9,12 @@ from freegames import vector
 ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
-score=0
+score=0 #puntaje
 writer = Turtle(visible=False)
-sp=7
+sp=7 #velocidad
 
 def tap(x, y):
-    "Respond to screen tap."
+    #Responde la tap de la pantalla
     if not inside(ball):
         ball.x = -199
         ball.y = -199
@@ -18,11 +22,11 @@ def tap(x, y):
         speed.y = (y*sp + 200) / 25
 
 def inside(xy):
-    "Return True if xy within screen."
+    #Devuelve True si xy esta dentro de la pantalla
     return -200 < xy.x < 200 and -200 < xy.y < 200
 
 def draw():
-    "Draw ball and targets."
+    #Dibuja la pelota y los objetivos
     clear()
 
     for target in targets:
@@ -41,8 +45,7 @@ def draw():
 
 
 def move():
-    "Move ball and targets."
-
+    #Mueve la pelota y los objetivos
 
     if randrange(40) == 0:
         y = randrange(-150, 150)
@@ -51,10 +54,10 @@ def move():
         
 
     for target in targets:
-        target.x -= 0.5*sp
+        target.x -= 0.5*sp #aumenta la veolocidad 
         
     if inside(ball):
-        speed.y -= 0.35*sp
+        speed.y -= 0.35*sp #aumenta la velocidad
         ball.move(speed)
        
     dupe =targets.copy()
@@ -63,7 +66,7 @@ def move():
     for target in dupe:
         if abs(target - ball) > 13:
             targets.append(target)
-        else:
+        else: #si choca suma 1 al puntaje
             global score
             score+=1
             
